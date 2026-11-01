@@ -1,9 +1,9 @@
-import random
+import secrets
 def generate_key(text):
-    keychain = ''
+    keychain = []
     for char in text: #generates a random string of numbers corralating to each character
-        key = str(random.randint(0,9))
-        keychain += key
+        key = str(secrets.randbelow(27))
+        keychain.append(key)
     return keychain
 
 def encode(text):
@@ -19,6 +19,6 @@ def encode(text):
             character =characters[index + int(keychain[i]) - len(characters)]
         encoded += character
     print(encoded)
-    print(keychain)
+    print("".join(keychain))
 
 encode(input('Enter Text:'))
