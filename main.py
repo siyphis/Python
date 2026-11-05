@@ -143,8 +143,8 @@ def smarter_bot(board_state,depth):
 
     best_score = -9999
     best_move = None
-    score2 = 9999
     for move in board_state.legal_moves:
+        score2 = 9999
         temp = board_state.copy()
         temp.push(move)
         score = value_calc(temp)
